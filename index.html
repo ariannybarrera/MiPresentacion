@@ -9,7 +9,7 @@
 
   body {
     min-height: 100vh;
-    background: linear-gradient(180deg, #0d4f7c 0%, #1a7fbf 30%, #2ec4e8 65%, #7fe8f5 100%);
+    background: linear-gradient(180deg, #3a0f7a 0%, #6b35b5 30%, #9b6fd4 65%, #ddc8f8 100%);
     font-family: 'Nunito', sans-serif;
     overflow-x: hidden;
     position: relative;
@@ -92,7 +92,7 @@
     width: 220px;
     height: auto;
     animation: floatMermaid 4s ease-in-out infinite;
-    filter: drop-shadow(0 8px 24px rgba(0,100,180,0.5));
+    filter: drop-shadow(0 8px 24px rgba(100,40,180,0.5));
   }
   @keyframes floatMermaid {
     0%, 100% { transform: translateY(0) rotate(-2deg); }
@@ -103,24 +103,23 @@
   .title-you {
     font-family: 'Pacifico', cursive;
     font-size: 15px;
-    color: #a8efff;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    color: #e0c8ff;
+    letter-spacing: 2px;
     margin-bottom: 4px;
   }
   .title-name {
     font-family: 'Pacifico', cursive;
     font-size: 52px;
     color: #fff;
-    text-shadow: 0 0 30px rgba(0,200,255,0.8), 0 2px 8px rgba(0,0,0,0.3);
+    text-shadow: 0 0 30px rgba(160,80,255,0.8), 0 2px 8px rgba(0,0,0,0.3);
     line-height: 1.1;
     margin-bottom: 4px;
   }
   .title-age {
     font-family: 'Pacifico', cursive;
     font-size: 28px;
-    color: #ffe66b;
-    text-shadow: 0 0 20px rgba(255,220,80,0.7), 0 2px 6px rgba(0,0,0,0.3);
+    color: #f0d9ff;
+    text-shadow: 0 0 20px rgba(200,140,255,0.7), 0 2px 6px rgba(0,0,0,0.3);
     margin-bottom: 16px;
   }
 
@@ -152,7 +151,7 @@
   .info-label {
     font-size: 11px;
     font-weight: 700;
-    color: #a8efff;
+    color: #e0c8ff;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     display: block;
@@ -167,10 +166,10 @@
   .countdown-title {
     font-family: 'Pacifico', cursive;
     font-size: 26px;
-    color: #ffe66b;
+    color: #f0d9ff;
     margin: 8px 0 16px;
     letter-spacing: 2px;
-    text-shadow: 0 0 12px rgba(255,230,107,0.7), 0 2px 6px rgba(0,0,0,0.3);
+    text-shadow: 0 0 12px rgba(200,140,255,0.7), 0 2px 6px rgba(0,0,0,0.3);
     line-height: 1.3;
   }
   .countdown-wrap {
@@ -195,7 +194,7 @@
   .count-lbl {
     font-size: 10px;
     font-weight: 700;
-    color: #a8efff;
+    color: #e0c8ff;
     text-transform: uppercase;
     letter-spacing: 1px;
   }
@@ -205,21 +204,21 @@
     display: inline-block;
     margin-top: 20px;
     padding: 14px 40px;
-    background: linear-gradient(135deg, #ff6eb4, #ff9de2);
+    background: linear-gradient(135deg, #9b4dca, #c77dff);
     border-radius: 50px;
     font-family: 'Pacifico', cursive;
     font-size: 18px;
     color: #fff;
     text-shadow: 0 1px 4px rgba(0,0,0,0.2);
-    box-shadow: 0 4px 24px rgba(255,110,180,0.5);
+    box-shadow: 0 4px 24px rgba(155,77,202,0.5);
     cursor: pointer;
     border: none;
     animation: pulse 2.5s ease-in-out infinite;
     text-decoration: none;
   }
   @keyframes pulse {
-    0%, 100% { transform: scale(1); box-shadow: 0 4px 24px rgba(255,110,180,0.5); }
-    50% { transform: scale(1.05); box-shadow: 0 6px 32px rgba(255,110,180,0.8); }
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 24px rgba(155,77,202,0.5); }
+    50% { transform: scale(1.05); box-shadow: 0 6px 32px rgba(155,77,202,0.8); }
   }
 
   /* Fish decoration */
@@ -258,9 +257,211 @@
     z-index: 0;
     opacity: 0.25;
   }
+
+  /* === SPLASH SCREEN === */
+  #splash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: linear-gradient(160deg, #150330 0%, #3a0f78 18%, #6830b0 42%, #9b6fd4 68%, #d4aef5 88%, #f0e4ff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  #splash::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 25%, rgba(170,90,255,0.38) 0%, transparent 62%);
+    pointer-events: none;
+  }
+  #splash.hide {
+    opacity: 0;
+    transform: scale(1.06);
+    pointer-events: none;
+  }
+  .splash-inner {
+    max-width: 380px;
+    width: 100%;
+    animation: splashEnter 1.2s ease forwards;
+    position: relative;
+    z-index: 1;
+  }
+  @keyframes splashEnter {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .splash-card {
+    background: rgba(255,255,255,0.09);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 36px;
+    padding: 28px 24px 22px;
+    box-shadow: 0 8px 56px rgba(70,10,150,0.55), inset 0 1px 0 rgba(255,255,255,0.28);
+  }
+  .splash-shells {
+    font-size: 34px;
+    margin-bottom: 10px;
+    letter-spacing: 12px;
+    animation: floatY 3s ease-in-out infinite;
+  }
+  .splash-mermaid-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 10px;
+  }
+  .splash-glow-orb {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(185,100,255,0.55) 0%, rgba(120,50,200,0.22) 55%, transparent 75%);
+    animation: orbPulse 3.5s ease-in-out infinite;
+  }
+  @keyframes orbPulse {
+    0%,100% { transform: scale(0.92); opacity: 0.55; }
+    50%      { transform: scale(1.18); opacity: 1; }
+  }
+  .splash-mermaid {
+    position: relative;
+    z-index: 1;
+    width: 158px;
+    animation: floatMermaid 4s ease-in-out infinite;
+    filter: drop-shadow(0 6px 22px rgba(100,40,180,0.7));
+  }
+  .splash-divider {
+    color: rgba(220,180,255,0.75);
+    letter-spacing: 10px;
+    font-size: 13px;
+    margin: 4px 0 10px;
+  }
+  .splash-welcome {
+    font-size: 12px;
+    font-weight: 700;
+    color: #e8d4ff;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+  }
+  .splash-name {
+    font-family: 'Pacifico', cursive;
+    font-size: 64px;
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: 4px;
+    animation: nameGlow 2.5s ease-in-out infinite;
+  }
+  @keyframes nameGlow {
+    0%,100% { text-shadow: 0 0 30px rgba(160,80,255,0.8), 0 2px 8px rgba(0,0,0,0.3); }
+    50%      { text-shadow: 0 0 65px rgba(200,120,255,1), 0 0 28px rgba(225,185,255,0.95), 0 2px 8px rgba(0,0,0,0.3); }
+  }
+  .splash-subtitle {
+    font-family: 'Pacifico', cursive;
+    font-size: 20px;
+    color: #f0d9ff;
+    text-shadow: 0 0 14px rgba(200,140,255,0.7);
+    margin-bottom: 12px;
+  }
+  .splash-date-pill {
+    display: inline-block;
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 50px;
+    padding: 7px 22px;
+    margin-bottom: 22px;
+  }
+  .splash-date {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.92);
+    letter-spacing: 3px;
+    margin: 0;
+  }
+  .splash-btn {
+    display: inline-block;
+    padding: 14px 42px;
+    background: linear-gradient(135deg, #8a2fc8, #bf60ff, #9b4dca);
+    background-size: 200% auto;
+    border-radius: 50px;
+    font-family: 'Pacifico', cursive;
+    font-size: 18px;
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 30px rgba(140,40,215,0.65), 0 0 0 3px rgba(200,130,255,0.22);
+    cursor: pointer;
+    border: none;
+    animation: pulse 2.5s ease-in-out infinite, gradientShift 3s linear infinite;
+  }
+  @keyframes gradientShift {
+    0%   { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+  .splash-btn:active { transform: scale(0.97) !important; }
+  .splash-bottom-deco {
+    font-size: 18px;
+    margin-top: 14px;
+    opacity: 0.6;
+    letter-spacing: 14px;
+  }
+
+  /* === MUSIC BUTTON === */
+  #music-btn {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 9998;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.35);
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 14px rgba(0,0,0,0.2);
+    transition: background 0.2s, transform 0.15s;
+  }
+  #music-btn:hover  { background: rgba(255,255,255,0.28); transform: scale(1.1); }
+  #music-btn:active { transform: scale(0.94); }
 </style>
 </head>
 <body>
+
+<!-- Music toggle -->
+<button id="music-btn" onclick="toggleMusic()" aria-label="Música">🔊</button>
+
+<!-- Splash Screen -->
+<div id="splash">
+  <div class="splash-inner">
+    <div class="splash-card">
+      <div class="splash-shells">🌟 🐚 🌟</div>
+      <div class="splash-mermaid-wrap">
+        <div class="splash-glow-orb"></div>
+        <img class="splash-mermaid" src="images/sirena.png" alt="Sirena"/>
+      </div>
+      <div class="splash-divider">✦ &nbsp;✦&nbsp; ✦</div>
+      <p class="splash-welcome">¡Tienes una invitación especial!</p>
+      <h1 class="splash-name">Arianny</h1>
+      <p class="splash-subtitle">🎀 Mi Presentación 🎀</p>
+      <div class="splash-date-pill">
+        <p class="splash-date">29 · Agosto · 2026</p>
+      </div>
+      <button class="splash-btn" onclick="enterInvitation()">¡Abrir invitación! 🐚</button>
+      <div class="splash-bottom-deco">🐠 🌊 🐠</div>
+    </div>
+  </div>
+</div>
 
 <!-- Bubbles -->
 <script>
@@ -275,7 +476,7 @@ for(let i=0;i<18;i++){
 
 <!-- Sparkles -->
 <script>
-const stars=['✨','⭐','🌟','💫'];
+const stars=['✨','⭐','🌟','💫','🌸','💜'];
 for(let i=0;i<14;i++){
   const s=document.createElement('div');
   s.className='sparkle';
@@ -315,7 +516,7 @@ for(let i=0;i<6;i++){
   const sw=document.createElement('div');
   sw.className='seaweed';
   sw.style.cssText=`left:${i*18}%;animation-delay:${i*0.5}s;animation-duration:${2.5+i*0.3}s;`;
-  sw.innerHTML=`<svg viewBox="0 0 40 120" xmlns="http://www.w3.org/2000/svg"><path d="M20,120 Q30,90 18,70 Q5,50 22,30 Q35,12 20,0" stroke="#1a9b5a" stroke-width="5" fill="none" stroke-linecap="round"/></svg>`;
+  sw.innerHTML=`<svg viewBox="0 0 40 120" xmlns="http://www.w3.org/2000/svg"><path d="M20,120 Q30,90 18,70 Q5,50 22,30 Q35,12 20,0" stroke="#9b50c8" stroke-width="5" fill="none" stroke-linecap="round"/></svg>`;
   document.body.appendChild(sw);
 }
 </script>
@@ -324,7 +525,7 @@ for(let i=0;i<6;i++){
 <div class="card">
   <div class="shell-header">
     <span class="shell-emoji">🐚</span>
-    <span class="shell-emoji">🌊</span>
+    <span class="shell-emoji">⭐</span>
     <span class="shell-emoji">🐚</span>
   </div>
 
@@ -358,7 +559,7 @@ for(let i=0;i<6;i++){
       <div>
         <span class="info-label">Lugar</span>
         <a href="https://maps.app.goo.gl/gfwAECAsczt7Gzup8" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">
-  <span class="info-value">Salón Biker's House<br><span style="font-size:13px;font-weight:600;color:#a8efff;">Calle del Mar 45, Col. Centro</span></span>
+  <span class="info-value">Salón Biker's House<br><span style="font-size:13px;font-weight:600;color:#e0c8ff;">Calle del Mar 45, Col. Centro</span></span>
 </a>
       </div>
     </div>
@@ -422,6 +623,94 @@ function updateCountdown(){
 }
 updateCountdown();
 setInterval(updateCountdown,1000);
+</script>
+
+<script>
+// === SPLASH ===
+function enterInvitation() {
+  const splash = document.getElementById('splash');
+  splash.classList.add('hide');
+  setTimeout(() => { splash.style.display = 'none'; }, 950);
+  startMusic();
+  const btn = document.getElementById('music-btn');
+  btn.style.display = 'flex';
+}
+
+// === MUSIC ===
+let audioCtx = null, masterGain = null, isMuted = false;
+
+function startMusic() {
+  if (audioCtx) return;
+  try {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    masterGain = audioCtx.createGain();
+    masterGain.gain.value = 0.22;
+    masterGain.connect(audioCtx.destination);
+    createOceanSound();
+    createGentleMelody();
+  } catch(e) { console.warn('Audio no disponible:', e); }
+}
+
+function createOceanSound() {
+  const sr = audioCtx.sampleRate;
+  const buf = audioCtx.createBuffer(1, sr * 8, sr);
+  const d = buf.getChannelData(0);
+  let b0=0,b1=0,b2=0,b3=0,b4=0,b5=0,b6=0;
+  for (let i=0; i<d.length; i++) {
+    const w = Math.random()*2-1;
+    b0=0.99886*b0+w*0.0555179; b1=0.99332*b1+w*0.0750759;
+    b2=0.96900*b2+w*0.1538520; b3=0.86650*b3+w*0.3104856;
+    b4=0.55000*b4+w*0.5329522; b5=-0.7616*b5-w*0.0168980;
+    d[i]=(b0+b1+b2+b3+b4+b5+b6+w*0.5362)*0.11; b6=w*0.115926;
+  }
+  const src = audioCtx.createBufferSource();
+  src.buffer = buf; src.loop = true;
+
+  const lp = audioCtx.createBiquadFilter();
+  lp.type = 'lowpass'; lp.frequency.value = 550;
+
+  const wg = audioCtx.createGain();
+  const now = audioCtx.currentTime;
+  for (let i=0; i<120; i++) {
+    const t = now + i*4;
+    wg.gain.setValueAtTime(0.06, t);
+    wg.gain.linearRampToValueAtTime(0.32, t+2);
+    wg.gain.linearRampToValueAtTime(0.06, t+4);
+  }
+  src.connect(lp); lp.connect(wg); wg.connect(masterGain);
+  src.start();
+}
+
+function createGentleMelody() {
+  const scale = [261.63,293.66,329.63,392.00,440.00,523.25,587.33,659.25];
+  const seq   = [0,2,4,5,4,2,1,0,3,4,3,1,0,2,4,7,5,4];
+  let idx = 0;
+  const dur = 1.1;
+  function next() {
+    if (!audioCtx) return;
+    const freq = scale[seq[idx % seq.length]];
+    const t = audioCtx.currentTime;
+    const osc = audioCtx.createOscillator();
+    const env = audioCtx.createGain();
+    osc.type = 'sine'; osc.frequency.value = freq;
+    env.gain.setValueAtTime(0, t);
+    env.gain.linearRampToValueAtTime(0.055, t+0.12);
+    env.gain.linearRampToValueAtTime(0.03,  t+dur*0.65);
+    env.gain.linearRampToValueAtTime(0,     t+dur);
+    osc.connect(env); env.connect(masterGain);
+    osc.start(t); osc.stop(t+dur);
+    idx++;
+    setTimeout(next, dur*1000);
+  }
+  setTimeout(next, 1800);
+}
+
+function toggleMusic() {
+  if (!audioCtx) return;
+  isMuted = !isMuted;
+  masterGain.gain.setTargetAtTime(isMuted ? 0 : 0.22, audioCtx.currentTime, 0.4);
+  document.getElementById('music-btn').textContent = isMuted ? '🔇' : '🔊';
+}
 </script>
 </body>
 </html>
