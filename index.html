@@ -3,6 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Mi Presentación! - Arianny 🎀</title>
+<meta name="description" content="Estás invitad@ a celebrar la presentación de Arianny. Sábado 29 de Agosto, 2026.">
+
+<!-- Open Graph / vista previa en WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ariannybarrera.github.io/MiPresentacion/">
+<meta property="og:title" content="¡Mi Presentación! - Arianny 🎀">
+<meta property="og:description" content="Estás invitad@ a celebrar la presentación de Arianny. Sábado 29 de Agosto, 2026.">
+<meta property="og:image" content="https://ariannybarrera.github.io/MiPresentacion/images/sirena.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="¡Mi Presentación! - Arianny 🎀">
+<meta name="twitter:description" content="Estás invitad@ a celebrar la presentación de Arianny. Sábado 29 de Agosto, 2026.">
+<meta name="twitter:image" content="https://ariannybarrera.github.io/MiPresentacion/images/sirena.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700;1,800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -374,6 +392,7 @@
   .splash-inner {
     max-width: 380px;
     width: 100%;
+    margin: auto 0;
     animation: splashEnter 1.2s ease forwards;
     position: relative;
     z-index: 1;
@@ -510,34 +529,9 @@
     letter-spacing: 14px;
   }
 
-  /* === MUSIC BUTTON === */
-  #music-btn {
-    position: fixed;
-    top: 16px;
-    right: 16px;
-    z-index: 9998;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.18);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.35);
-    font-size: 20px;
-    cursor: pointer;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 14px rgba(0,0,0,0.2);
-    transition: background 0.2s, transform 0.15s;
-  }
-  #music-btn:hover  { background: rgba(255,255,255,0.28); transform: scale(1.1); }
-  #music-btn:active { transform: scale(0.94); }
 </style>
 </head>
 <body>
-
-<!-- Music toggle -->
-<button id="music-btn" onclick="toggleMusic()" aria-label="Música">🔊</button>
 
 <!-- Splash Screen -->
 <div id="splash">
@@ -751,12 +745,10 @@ function enterInvitation() {
   setTimeout(() => { splash.style.display = 'none'; }, 950);
   document.body.classList.add('invitation-open');
   startMusic();
-  const btn = document.getElementById('music-btn');
-  btn.style.display = 'flex';
 }
 
 // === MUSIC ===
-let audioCtx = null, masterGain = null, isMuted = false;
+let audioCtx = null, masterGain = null;
 
 function startMusic() {
   if (audioCtx) return;
@@ -822,13 +814,6 @@ function createGentleMelody() {
     setTimeout(next, dur*1000);
   }
   setTimeout(next, 1800);
-}
-
-function toggleMusic() {
-  if (!audioCtx) return;
-  isMuted = !isMuted;
-  masterGain.gain.setTargetAtTime(isMuted ? 0 : 0.22, audioCtx.currentTime, 0.4);
-  document.getElementById('music-btn').textContent = isMuted ? '🔇' : '🔊';
 }
 </script>
 </body>
